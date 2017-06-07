@@ -6,7 +6,6 @@
     <AssemblyName>System.Private.Reflection.Metadata.Tests</AssemblyName>
     <RootNamespace>System.Private.Reflection.Metadata.Tests</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <NugetTargetMoniker>.NETStandard,Version=v1.3</NugetTargetMoniker>
     <TargetFramework>netstandard1.3</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
@@ -27,9 +26,6 @@
     <Compile Include="$(MetadataCommonPath)\NativeFormatReaderGen.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NETStandard.Library">
-      <Version>1.6.1</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.DotNet.BuildTools.TestSuite">
       <Version>$(XunitNetcoreExtensionsVersion)</Version>
     </PackageReference>

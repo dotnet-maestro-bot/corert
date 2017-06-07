@@ -23,6 +23,33 @@
     <TargetExt Condition="'$(TargetExt)' == ''">.dll</TargetExt>
   </PropertyGroup>
 
+  <!-- Set default references for netstandard1.3 -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
+    <NuGetTargetMoniker>.NETStandard,Version=v1.3</NuGetTargetMoniker>
+    <TargetFrameworkIdentifier>.NETStandard</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v1.3</TargetFrameworkVersion>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
+    <PackageReference Include="NETStandard.Library">
+      <!-- <Version>2.0.0-preview1-25301-01</Version> -->
+      <Version>1.6.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- Set default references for netcoreapp1.1 -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp1.1'">
+    <NuGetTargetMoniker>.NETCoreApp,Version=v1.1</NuGetTargetMoniker>
+    <!-- This tells VS that this is .NET Core app - uses .NET Core debugger, etc. -->
+    <TargetFrameworkIdentifier>.NETCoreApp</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v1.1</TargetFrameworkVersion>
+    <NoWarn>$(NoWarn);1701;1702</NoWarn>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp1.1'">
+    <PackageReference Include="Microsoft.NETCore.App">
+      <Version>1.1.2</Version>
+    </PackageReference>
+  </ItemGroup>
+
   <Import Project="$(ToolsDir)/Build.Common.targets" />
 
   <PropertyGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETCoreApp' and '$(OutputType)' == 'Exe'">
@@ -51,4 +78,5 @@
     <!-- We set this property to avoid MSBuild errors regarding not setting TargetFrameworkProfile (see above line) -->
     <PortableNuGetMode>true</PortableNuGetMode>
   </PropertyGroup>
+
 </Project>

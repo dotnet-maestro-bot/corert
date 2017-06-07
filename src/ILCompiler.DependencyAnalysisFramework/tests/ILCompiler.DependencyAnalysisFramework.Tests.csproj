@@ -5,16 +5,12 @@
     <OutputType>Library</OutputType>
     <AssemblyName>ILCompiler.DependencyAnalysisFramework.Tests</AssemblyName>
     <RootNamespace>ILCompiler.DependencyAnalysisFramework.Tests</RootNamespace>
-    <NuGetTargetMoniker>.NETStandard,Version=v1.3</NuGetTargetMoniker>
     <TargetFramework>netstandard1.3</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\ILCompiler.DependencyAnalysisFramework.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NETStandard.Library">
-      <Version>1.6.1</Version>
-    </PackageReference>
     <PackageReference Include="System.Collections.Immutable">
       <Version>1.3.1</Version>
     </PackageReference>

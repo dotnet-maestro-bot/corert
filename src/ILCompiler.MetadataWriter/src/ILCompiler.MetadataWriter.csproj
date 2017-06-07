@@ -6,14 +6,8 @@
     <AssemblyName>ILCompiler.MetadataWriter</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>$(DefineConstants);NATIVEFORMAT_PUBLICWRITER;NETFX_45</DefineConstants>
-    <NuGetTargetMoniker>.NETStandard,Version=v1.3</NuGetTargetMoniker>
     <TargetFramework>netstandard1.3</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="NETStandard.Library">
-      <Version>1.6.1</Version>
-    </PackageReference>
-  </ItemGroup>
   <Import Project="ILCompiler.MetadataWriter.targets" />
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), dir.targets))\dir.targets" />
 </Project>

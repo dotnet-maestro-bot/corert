@@ -6,7 +6,6 @@
     <RootNamespace>ILCompiler</RootNamespace>
     <AssemblyName>ILCompiler.CppCodeGen</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <NuGetTargetMoniker>.NETStandard,Version=v1.3</NuGetTargetMoniker>
     <TargetFramework>netstandard1.3</TargetFramework>
   </PropertyGroup>
   <ItemGroup Condition="'$(IsProjectNLibrary)' != 'true'">
@@ -15,11 +14,6 @@
     <ProjectReference Include="..\..\ILCompiler.MetadataWriter\src\ILCompiler.MetadataWriter.csproj" />
     <ProjectReference Include="..\..\ILCompiler.TypeSystem\src\ILCompiler.TypeSystem.csproj" />
     <ProjectReference Include="..\..\ILCompiler.Compiler\src\ILCompiler.Compiler.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="NETStandard.Library">
-      <Version>1.6.1</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Common\src\TypeSystem\IL\ILImporter.cs">

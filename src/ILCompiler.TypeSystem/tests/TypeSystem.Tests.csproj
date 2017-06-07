@@ -5,13 +5,9 @@
     <OutputType>Library</OutputType>
     <AssemblyName>TypeSystem.Tests</AssemblyName>
     <RootNamespace>TypeSystem.Tests</RootNamespace>
-    <NugetTargetMoniker>.NETStandard,Version=v1.3</NugetTargetMoniker>
     <TargetFramework>netstandard1.3</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NETStandard.Library">
-      <Version>1.6.1</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.DotNet.BuildTools.TestSuite">
       <Version>$(XunitNetcoreExtensionsVersion)</Version>
     </PackageReference>
