@@ -123,7 +123,7 @@ namespace Internal.IL
             _typeSystemContext = method.Context;
 
             if (!_methodSignature.IsStatic)
-                _thisType = method.OwningType;
+                _thisType = method.OwningType.InstantiateAsOpen();
 
             _methodIL = methodIL;
 
@@ -1279,7 +1279,9 @@ namespace Internal.IL
             Check(!address.IsReadOnly, VerifierError.ReadOnlyIllegalWrite);
 
             CheckIsByRef(address);
-            CheckIsAssignable(type, address.Type);
+            if (!value.IsNullReference)
+                CheckIsAssignable(type, address.Type);
+
             CheckIsAssignable(value, StackValue.CreateFromType(type));
         }
 
