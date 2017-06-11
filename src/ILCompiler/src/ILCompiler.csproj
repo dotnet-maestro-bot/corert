@@ -8,7 +8,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <CopyNugetImplementations>false</CopyNugetImplementations>
-  </PropertyGroup>  <ItemGroup>
+  </PropertyGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\ILCompiler.DependencyAnalysisFramework\src\ILCompiler.DependencyAnalysisFramework.csproj" />
     <ProjectReference Include="..\..\ILCompiler.MetadataTransform\src\ILCompiler.MetadataTransform.csproj" />
     <ProjectReference Include="..\..\ILCompiler.MetadataWriter\src\ILCompiler.MetadataWriter.csproj" />
