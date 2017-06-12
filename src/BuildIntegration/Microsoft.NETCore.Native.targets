@@ -109,14 +109,7 @@ See the LICENSE file in the project root for more information.
 
     <MakeDir Directories="$([System.IO.Path]::GetDirectoryName($(NativeObject)))" />
 
-    <PropertyGroup>
-      <TestHost Condition="'$(OS)' == 'Windows_NT'">CoreRun.exe</TestHost>
-      <TestHost Condition="'$(OS)' != 'Windows_NT'">corerun</TestHost>
-    </PropertyGroup>
-
-    <Exec Command="&quot;$(IlcPath)\$(TestHost)&quot; &quot;$(IlcPath)\ilc.dll&quot; @&quot;$(NativeIntermediateOutputPath)%(ManagedBinary.Filename).ilc.rsp&quot;">
-    </Exec>
-
+    <Exec Command="&quot;$(IlcPath)\ilc&quot; @&quot;$(NativeIntermediateOutputPath)%(ManagedBinary.Filename).ilc.rsp&quot;" />
   </Target>
 
   <Import Project="Microsoft.NETCore.Native.Windows.props" Condition="'$(TargetOS)' == 'Windows_NT'" />

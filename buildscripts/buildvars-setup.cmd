@@ -52,15 +52,12 @@ exit /b 1
 :ArgsDone
 
 :: Set the remaining variables based upon the determined build configuration
-set "__BinDir=%__RootBinDir%\Product\%__BuildOS%.%__BuildArch%.%__BuildType%"
+set "__BinDir=%__RootBinDir%\%__BuildOS%.%__BuildArch%.%__BuildType%"
 set "__ObjDir=%__RootBinDir%\obj\%__BuildOS%.%__BuildArch%.%__BuildType%"
 set "__IntermediatesDir=%__RootBinDir%\obj\Native\%__BuildOS%.%__BuildArch%.%__BuildType%\"
 set "__RelativeProductBinDir=bin\Product\%__BuildOS%.%__BuildArch%.%__BuildType%"
 set "__NativeBuildLog=%__LogsDir%\Native_%__BuildOS%__%__BuildArch%__%__BuildType%.log"
 set "__BuildLog=%__LogsDir%\msbuild_%__BuildOS%__%__BuildArch%__%__BuildType%.log"
-set "__ReproProjectDir=%__ProjectDir%\src\ILCompiler\repro"
-set "__ReproProjectBinDir=%__BinDir%\repro"
-set "__ReproProjectObjDir=%__ObjDir%\repro"
 
 :: Generate path to be set for CMAKE_INSTALL_PREFIX to contain forward slash
 set "__CMakeBinDir=%__BinDir%"

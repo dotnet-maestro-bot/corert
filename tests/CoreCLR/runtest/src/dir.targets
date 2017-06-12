@@ -63,11 +63,7 @@
       <Private>false</Private>
     </ProjectReference>
   </ItemGroup>
-        
-  <PropertyGroup>
-    <ErrorIfBuildToolsRestoredFromIndividualProject Condition="!Exists('$(ToolsDir)')">true</ErrorIfBuildToolsRestoredFromIndividualProject>
-  </PropertyGroup>
-  
+
   <Import Project="..\dir.targets" />
 
   <Target Name="CreateManifestResourceNames" />
