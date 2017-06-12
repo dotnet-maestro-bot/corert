@@ -26,21 +26,4 @@
 
   <Import Project="packaging\packages.targets" />
 
-  <Import Project="$(ToolsDir)packages.targets" Condition="Exists('$(ToolsDir)packages.targets') and '$(ImportGetNuGetPackageVersions)' != 'false'" />
-  <Import Project="$(ToolsDir)UpdateBuildValues.targets" Condition="Exists('$(ToolsDir)UpdateBuildValues.targets')" />
-
-  <PropertyGroup Condition="Exists('$(ToolsDir)packages.targets') and '$(ImportGetNuGetPackageVersions)' != 'false'">
-    <TraversalBuildDependsOn>
-      $(TraversalBuildDependsOn);
-      BuildPackages;
-    </TraversalBuildDependsOn>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="Exists('$(ToolsDir)toolruntime.targets')">
-    <TraversalBuildDependsOn>
-      EnsureBuildToolsRuntime;
-      $(TraversalBuildDependsOn)
-    </TraversalBuildDependsOn>
-  </PropertyGroup>
-
 </Project>
