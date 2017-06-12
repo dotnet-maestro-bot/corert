@@ -17,7 +17,6 @@ set "__RootBinDir=%__ProjectDir%\bin"
 set "__LogsDir=%__RootBinDir%\Logs"
 set __MSBCleanBuildArgs=
 set __SkipTestBuild=
-set __ToolchainMilestone=testing
 set "__DotNetCliPath=%__ProjectDir%\Tools\dotnetcli"
 
 :Arg_Loop
@@ -44,7 +43,6 @@ if /i "%1" == "clean"   (set __CleanBuild=1&shift&goto Arg_Loop)
 
 if /i "%1" == "skiptests" (set __SkipTests=1&shift&goto Arg_Loop)
 if /i "%1" == "skipvsdev" (set __SkipVsDev=1&shift&goto Arg_Loop)
-if /i "%1" == "/milestone" (set __ToolchainMilestone=%2&shift&shift&goto Arg_Loop)
 if /i "%1" == "/dotnetclipath" (set __DotNetCliPath=%2&shift&shift&goto Arg_Loop)
 
 if /i "%1" == "/officialbuildid" (set "__ExtraMsBuildParams=/p:OfficialBuildId=%2"&shift&shift&goto Arg_Loop)

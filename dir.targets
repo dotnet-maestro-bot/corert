@@ -18,11 +18,6 @@
     <CLSCompliant Condition="'$(CLSCompliant)'==''">false</CLSCompliant>
   </PropertyGroup>
 
-  <!-- Force .dll extension for .NETCoreApp projects even if output type is exe. -->
-  <PropertyGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETCoreApp' and '$(OutputType)' == 'Exe'">
-    <TargetExt Condition="'$(TargetExt)' == ''">.dll</TargetExt>
-  </PropertyGroup>
-
   <!-- Set default references for netstandard1.3 -->
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
     <NuGetTargetMoniker>.NETStandard,Version=v1.3</NuGetTargetMoniker>
@@ -42,6 +37,8 @@
     <TargetFrameworkIdentifier>.NETCoreApp</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v1.1</TargetFrameworkVersion>
     <NoWarn>$(NoWarn);1701;1702</NoWarn>
+    <!-- Force .dll extension even if output type is exe. -->
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp1.1'">
     <PackageReference Include="Microsoft.NETCore.App">
@@ -50,11 +47,6 @@
   </ItemGroup>
 
   <Import Project="$(ToolsDir)/Build.Common.targets" />
-
-  <PropertyGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETCoreApp' and '$(OutputType)' == 'Exe'">
-    <RunCommand>dotnet</RunCommand>
-    <RunArguments>exec &quot;$(TargetPath)&quot; $(StartArguments)</RunArguments>
-  </PropertyGroup>
 
   <!-- Override corefx multi targeting support -->
   <Target Name="ConvertCommonMetadataToAdditionalProperties" BeforeTargets="AssignProjectConfiguration" />

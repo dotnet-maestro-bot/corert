@@ -34,5 +34,15 @@
       <Link>CommandLine\CommandLineHelpers.cs</Link>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ilc.runtimeconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), dir.targets))\dir.targets" />
+  <PropertyGroup>
+    <RunCommand Condition="'$(OS)' == 'Windows_NT'">$(TargetDir)$(AssemblyName).exe</RunCommand>
+    <RunCommand Condition="'$(OS)' != 'Windows_NT'">$(TargetDir)$(AssemblyName)</RunCommand>
+    <RunArguments>$(StartArguments)</RunArguments>
+  </PropertyGroup>
 </Project>

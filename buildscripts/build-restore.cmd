@@ -31,4 +31,16 @@ exit /b %ERRORLEVEL%
 call  "%__ProjectDir%\init-tools.cmd"
 
 %_msbuildexe% "%__ProjectDir%\build.proj" /m /nologo /t:Restore /flp:v=diag;LogFile=build-restore.log /p:NuPkgRid=win7-x64 /p:OSGroup=%__BuildOS% /p:Configuration=%__BuildType% /p:Platform=%__BuildArch% %__ExtraMsBuildParams%
-exit /b %ERRORLEVEL%
+IF ERRORLEVEL 1 goto ErrorExit
+
+rem Buildtools tooling is not capable of publishing netcoreapp currently. Use helper projects to publish skeleton of
+rem the standalone app that the build injects actual binaries into later.
+"%__DotNetCliPath%\dotnet.exe" restore "%__SourceDir%\ILCompiler\netcoreapp\ilc.csproj" -r win7-x64
+IF ERRORLEVEL 1 goto ErrorExit
+"%__DotNetCliPath%\dotnet.exe" publish "%__SourceDir%\ILCompiler\netcoreapp\ilc.csproj" -r win7-x64 -o "%__RootBinDir%\%__BuildOS%.%__BuildArch%.%__BuildType%\ILCompiler"
+IF ERRORLEVEL 1 goto ErrorExit
+
+exit /b 0
+
+:ErrorExit
+exit /b 1
