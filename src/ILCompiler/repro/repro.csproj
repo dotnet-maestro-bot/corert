@@ -10,8 +10,6 @@
     <SkipSigning>true</SkipSigning>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.App">
       <Version>$(MicrosoftNETCoreAppPackageVersion)</Version>
